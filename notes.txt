@@ -1,0 +1,118 @@
+--- install choco 
+-- open in powershell/admin
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+
+
+-- install git with choco, in admin command prompt
+
+Choco install git 
+
+
+--- check git is installed, open new command prompt
+
+git
+
+--- in same command prompt, setup directory structure, copy and paste all
+
+
+cd \
+mkdir ssgit
+cd ssgit
+mkdir mygitrepo
+dir
+
+---- git clone, visit https://github.com/ahmedsza/slipslop/
+
+git clone https://github.com/ahmedsza/slipslop.git
+cd slipslop
+dir
+
+-- setup git user accounts, might be needed.. 
+
+git config --global user.name "Your Name"
+git config --global user.email "your_email@youremail.com"
+
+
+--- get the changes, make sure you in slipslop directory, first line only required if not in the slipslop directory, 
+--- one step at a time
+
+cd slipslop
+git pull
+dir
+
+-- create  your own git repo, do one step at a time
+
+cd c:\ssgit\mygitrepo
+git init
+dir
+dir /A:H
+
+-- create and commit file
+-- one step at a time,, the git config command above might be needed
+
+notepad f1.txt
+git add f1.txt
+git commit –m "added my first git file, put whatever comment"
+git log
+
+
+-- add another one, can copy and paste on one go
+
+echo "f2" >> f2.txt
+git add f2.txt
+git commit –m "added my second git file, put whatever comment"
+git log
+
+
+-- add and change, one step at a time
+
+echo "f3" >> f3.txt
+notepad f1.txt
+git add .
+git commit –m "added f3 and changed f1"
+git log --name-status
+git log  --oneline
+
+
+
+-- go back in time, one step at a time
+
+git log --oneline
+dir
+Git checkout <enter the number>
+Dir
+Git checkout master
+dir
+
+
+-- branching, one step at a time
+
+git branch mybranch
+git checkout mybranch
+echo "f4" >> f4.txt
+git add f4.txt
+git commit –m “added f4 in branch”
+Dir
+git checkout master
+Dir
+
+
+-- merge change, can copy/paste in one go
+
+git merge mybranch
+Dir
+git status
+git log --oneline 
+
+
+
+-- 
+
+
+
+
+
+
+
